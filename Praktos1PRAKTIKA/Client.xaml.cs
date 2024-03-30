@@ -1,6 +1,7 @@
 ﻿using Praktos1PRAKTIKA.tatuSalonPRAKTIKADataSetTableAdapters;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,30 @@ namespace Praktos1PRAKTIKA
         private void ClientsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ADDstring_Click(object sender, RoutedEventArgs e)
+        {
+            Clients.InsertQuery((TB_Familiya.Text), (TB_name.Text), (TB_Otchestvo.Text),
+                        Convert.ToString(TB_age.Text), Convert.ToInt32(TB_phone_number.Text));
+
+            ClientsDataGrid.ItemsSource = Clients.GetData();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            object id = (ClientsDataGrid.SelectedItem as DataRowView).Row[0];
+            Clients.UpdateQuery((TB_Familiya.Text), (TB_name.Text), (TB_Otchestvo.Text),
+                        Convert.ToString(TB_age.Text), Convert.ToInt32(TB_phone_number.Text), Convert.ToInt32(id));
+
+            ClientsDataGrid.ItemsSource = Clients.GetData();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            object id = (ClientsDataGrid.SelectedItem as DataRowView).Row[0];
+            Clients.DeleteQuery(Convert.ToInt32(id));
+            ClientsDataGrid.ItemsSource = Clients.GetData();
         }
     }
 }

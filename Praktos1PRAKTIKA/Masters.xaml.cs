@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,27 @@ namespace Praktos1PRAKTIKA
         private void MastersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ADDstring_Click(object sender, RoutedEventArgs e)
+        {
+            Master.InsertQuery((TB_name.Text), Convert.ToInt32(TB_age.Text));
+            MastersDataGrid.ItemsSource = Master.GetData();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            object id = (MastersDataGrid.SelectedItem as DataRowView).Row[0];
+            Master.UpdateQuery((TB_name.Text), Convert.ToInt32(TB_age.Text), Convert.ToInt32(id));
+
+            MastersDataGrid.ItemsSource = Master.GetData();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            object id = (MastersDataGrid.SelectedItem as DataRowView).Row[0];
+            Master.DeleteQuery(Convert.ToInt32(id));
+            MastersDataGrid.ItemsSource = Master.GetData();
         }
     }
 }

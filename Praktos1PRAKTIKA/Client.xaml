@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktos1PRAKTIKA"
         mc:Ignorable="d"
-        Title="Client" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="ClientsDataGrid" SelectionChanged="ClientsDataGrid_SelectionChanged"/>
+        Title="Client" Height="707" Width="772">
+    <Grid Margin="0,0,10,-6">
+        <DataGrid x:Name="ClientsDataGrid" SelectionChanged="ClientsDataGrid_SelectionChanged" Margin="0,0,0,373"/>
+        <Button x:Name="ADDstring" Content="Добавить" HorizontalAlignment="Left" Margin="197,577,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FF98C62D" Click="ADDstring_Click"/>
+        <Button x:Name="Update" Content="Изменить" HorizontalAlignment="Left" Margin="370,577,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FFE0FCA1" Click="Update_Click"/>
+        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="544,577,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FFFF6442" Click="Delete_Click"/>
+        <TextBox x:Name="TB_Familiya" HorizontalAlignment="Left" Margin="195,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,354,0,0" TextWrapping="Wrap" Text="Фамилия клиента:" VerticalAlignment="Top" Height="27" Width="110"/>
+        <TextBox x:Name="TB_name" HorizontalAlignment="Left" Margin="195,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,388,0,0" TextWrapping="Wrap" Text="Имя клиента:" VerticalAlignment="Top" Height="27" Width="96"/>
+        <TextBox x:Name="TB_Otchestvo" HorizontalAlignment="Left" Margin="195,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,420,0,0" TextWrapping="Wrap" Text="Отчество клиента:" VerticalAlignment="Top" Height="27" Width="110"/>
+        <TextBox x:Name="TB_age" HorizontalAlignment="Left" Margin="195,452,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,452,0,0" TextWrapping="Wrap" Text="Возраст:" VerticalAlignment="Top" Height="27" Width="59"/>
+        <TextBox x:Name="TB_phone_number" HorizontalAlignment="Left" Margin="195,484,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,484,0,0" TextWrapping="Wrap" Text="Номер телефона:" VerticalAlignment="Top" Height="27" Width="96"/>
     </Grid>
 </Window>

@@ -64,6 +64,9 @@
     <Compile Include="Servises.xaml.cs">
       <DependentUpon>Servises.xaml</DependentUpon>
     </Compile>
+    <Compile Include="tatuSalonPRAKTIKADataSet.cs">
+      <DependentUpon>tatuSalonPRAKTIKADataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="tatuSalonPRAKTIKADataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

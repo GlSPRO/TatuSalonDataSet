@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Praktos1PRAKTIKA.tatuSalonPRAKTIKADataSetTableAdapters;
+using System;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Praktos1PRAKTIKA.tatuSalonPRAKTIKADataSetTableAdapters;
 
 namespace Praktos1PRAKTIKA
 {
@@ -25,7 +15,7 @@ namespace Praktos1PRAKTIKA
         public MainWindow()
         {
             InitializeComponent();
-            AppointmentsDataGrid.ItemsSource = Appointments.GetData();
+            ClientDG.ItemsSource = Appointments.GetData();
 
         }
 
@@ -50,6 +40,32 @@ namespace Praktos1PRAKTIKA
         {
             Client masters = new Client();
             masters.Show();
+        }
+
+        private void ADDstring_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Appointments.InsertQuery(Convert.ToInt32(TB_ClientID.Text), Convert.ToInt32(TB_ServiceID.Text),
+                                    Convert.ToInt32(TB_MastersID.Text), (TB_Familiya.Text), (TB_name.Text), (TB_Otchestvo.Text),
+                                    Convert.ToInt32(TB_age.Text), Convert.ToInt32(TB_phone_number.Text));
+
+            ClientDG.ItemsSource = Appointments.GetData();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            object id = (ClientDG.SelectedItem as DataRowView).Row[0];
+            Appointments.UpdateQuery(Convert.ToInt32(TB_ClientID.Text), Convert.ToInt32(TB_ServiceID.Text),
+                                    Convert.ToInt32(TB_MastersID.Text), (TB_Familiya.Text), (TB_name.Text), (TB_Otchestvo.Text),
+                                    Convert.ToInt32(TB_age.Text), Convert.ToInt32(TB_phone_number.Text), Convert.ToInt32(id));
+
+            ClientDG.ItemsSource = Appointments.GetData();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            object id = (ClientDG.SelectedItem as DataRowView).Row[0];
+            Appointments.DeleteQuery(Convert.ToInt32(id));
+            ClientDG.ItemsSource = Appointments.GetData();
         }
     }
 }
